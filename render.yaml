@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: rwi-samsara-mcp
+    runtime: docker
+    plan: free
+    region: virginia
+    healthCheckPath: /healthz
+    envVars:
+      - key: MCP_SECRET
+        generateValue: true
+      - key: READ_ONLY
+        value: "true"
+      - key: SAMSARA_API_TOKEN
+        sync: false
