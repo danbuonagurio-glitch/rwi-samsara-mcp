@@ -1,1 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Saquish Capital</title>
+<meta name="description" content="Saquish Capital — Duxbury, Massachusetts.">
+<meta property="og:title" content="Saquish Capital">
+<meta property="og:image" content="https://saquish.capital/bridge.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d2240'/%3E%3Cpath d='M8 23h17l-2 3H10z' fill='%23f4efe4'/%3E%3Cpath d='M15 6v17M20 9v14' stroke='%23f4efe4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap">
+<style>
+  :root{--bg:#ffffff;--cream:#f4efe4;--navy:#0d2240;--ink:#1b2430;--muted:#5b6672;color-scheme:light}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px clamp(16px,4vw,56px);background:var(--bg)}
+  .logo img{height:54px;width:auto;display:block}
+  nav a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--navy);text-decoration:none;border:1px solid var(--navy);padding:10px 16px}
+  nav a:hover{background:var(--navy);color:var(--bg)}
+  .hero{position:relative;min-height:min(78vh,760px);background:url(bridge.jpg) center 62%/cover no-repeat;display:flex;align-items:flex-end;padding:clamp(24px,5vw,64px) clamp(16px,4vw,56px)}
+  .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,64,.08),rgba(13,34,64,.22))}
+  .box{position:relative;background:rgba(13,34,64,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#f4efe4;padding:clamp(18px,2.6vw,30px) clamp(22px,3vw,40px);max-width:36ch;border-left:3px solid var(--cream)}
+  .box p{margin:0;font-size:clamp(18px,2.1vw,26px);line-height:1.3;font-weight:500;letter-spacing:.01em}
+  footer{background:var(--cream);padding:26px clamp(16px,4vw,56px);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  @media (max-width:600px){.logo img{height:40px}.hero{min-height:62vh}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="Saquish Capital"><img src="logo.png" alt="Saquish Capital"></a>
+  <nav><a href="https://outlook.office.com/">Family Login</a></nav>
+</header>
+<section class="hero" aria-label="Powder Point Bridge, Duxbury Bay">
+  <div class="box"><p>Funding companies solving hard problems.</p></div>
+</section>
+<footer>
+  <span>© 2026 Saquish Capital</span>
+  <span>Duxbury, Massachusetts</span>
+</footer>
+</body>
+</html>
