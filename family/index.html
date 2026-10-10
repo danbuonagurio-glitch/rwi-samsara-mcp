@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Saquish Capital — Family</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230d2240'/%3E%3Cpath d='M8 23h17l-2 3H10z' fill='%23f4efe4'/%3E%3Cpath d='M15 6v17M20 9v14' stroke='%23f4efe4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap">
+<style>
+  :root{--bg:#ffffff;--cream:#f4efe4;--navy:#0d2240;--ink:#1b2430;--muted:#5b6672;--line:#e3ddcf;--brass:#c9b27c;--up:#2e6b4f;--down:#9a3b2e;color-scheme:light}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--cream);color:var(--ink);font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px clamp(16px,4vw,56px);background:var(--bg)}
+  .logo img{height:54px;width:auto;display:block}
+  nav{display:flex;gap:10px;align-items:center}
+  nav a,nav button{font:600 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);text-decoration:none;border:1px solid var(--navy);padding:10px 16px;background:transparent;cursor:pointer}
+  nav a:hover,nav button:hover{background:var(--navy);color:var(--bg)}
+  main{padding:clamp(24px,4vw,48px) clamp(16px,4vw,56px);max-width:1180px;margin:0 auto}
+  footer{padding:26px clamp(16px,4vw,56px);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  @media (max-width:600px){.logo img{height:40px}}
+
+  /* gate */
+  .gate{min-height:60vh;display:grid;place-items:center}
+  .card{background:var(--bg);border-left:3px solid var(--navy);padding:clamp(24px,3vw,40px);width:min(420px,100%)}
+  .card h1{margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:.02em;color:var(--navy)}
+  .card p{margin:0 0 22px;color:var(--muted);font-size:14px}
+  label{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+  input{width:100%;font:16px Montserrat,sans-serif;padding:12px 14px;border:1px solid var(--line);background:var(--cream);color:var(--ink);outline:none}
+  input:focus{border-color:var(--navy)}
+  .btn{margin-top:22px;width:100%;font:600 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;background:var(--navy);color:var(--bg);border:0;padding:15px;cursor:pointer}
+  .err{color:var(--down);font-size:13px;margin-top:12px;min-height:1em}
+
+  /* portal */
+  .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+  h2{font-size:clamp(22px,2.6vw,30px);font-weight:500;color:var(--navy);margin:0 0 4px;letter-spacing:.01em}
+  .asof{font-size:13px;color:var(--muted);margin:0 0 28px}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:32px}
+  .tile{background:var(--bg);padding:20px 22px;border-top:3px solid var(--navy)}
+  .tile .k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .tile .v{font-size:clamp(22px,2.4vw,28px);font-weight:500;color:var(--navy);margin-top:8px;font-variant-numeric:tabular-nums}
+  .tile .d{font-size:12px;margin-top:6px;color:var(--muted)}
+  .d.up{color:var(--up)} .d.down{color:var(--down)}
+  section{background:var(--bg);padding:clamp(18px,2.6vw,30px);margin-bottom:22px}
+  section h3{margin:0 0 16px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:0 10px 10px 0;border-bottom:1px solid var(--line)}
+  td{padding:13px 10px 13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  td .sub{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+  tr.total td{font-weight:600;color:var(--navy);border-bottom:0}
+  .bar{height:10px;background:var(--cream);display:flex;overflow:hidden;margin:6px 0 14px}
+  .bar span{display:block;height:100%}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:12px;color:var(--muted)}
+  .legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+  .c1{background:#0d2240}.c2{background:#2b4a73}.c3{background:#6f8aa6}.c4{background:#c9b27c}.c5{background:#d9d2c0}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media (max-width:800px){.two{grid-template-columns:1fr}}
+  .letter p{margin:0 0 14px;font-size:15px;line-height:1.6;max-width:62ch}
+  .note{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+  .hidden{display:none}
+  .tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--brass);color:var(--navy);margin-left:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/" aria-label="Saquish Capital"><img src="/logo.png" alt="Saquish Capital"></a>
+  <nav><a href="/">Home</a><button id="out" class="hidden" type="button">Sign out</button></nav>
+</header>
+
+<main>
+  <div id="gate" class="gate">
+    <form class="card" id="f" autocomplete="off">
+      <h1>Family Login</h1>
+      <p>Saquish Capital family portal.</p>
+      <label for="u">Username</label>
+      <input id="u" name="u" type="text" autocapitalize="none" autocorrect="off" required>
+      <label for="p">Password</label>
+      <input id="p" name="p" type="password" required>
+      <button class="btn" type="submit">Enter</button>
+      <div class="err" id="err" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <div id="portal" class="hidden">
+    <p class="eyebrow">Family portal <span class="tag">Illustrative</span></p>
+    <h2>Saquish Capital — Consolidated Holdings</h2>
+    <p class="asof">As of September 30, 2026 · Figures are hypothetical placeholders for layout</p>
+
+    <div class="tiles">
+      <div class="tile"><div class="k">Net asset value</div><div class="v">$48.6M</div><div class="d up">▲ 6.2% YTD</div></div>
+      <div class="tile"><div class="k">Operating cash flow (TTM)</div><div class="v">$4.1M</div><div class="d up">▲ 11% y/y</div></div>
+      <div class="tile"><div class="k">Net debt / EBITDA</div><div class="v">2.1×</div><div class="d">Covenant 2.75×</div></div>
+      <div class="tile"><div class="k">Liquidity</div><div class="v">$3.4M</div><div class="d">Cash + undrawn revolver</div></div>
+    </div>
+
+    <section>
+      <h3>Allocation</h3>
+      <div class="bar"><span class="c1" style="width:58%"></span><span class="c2" style="width:17%"></span><span class="c3" style="width:12%"></span><span class="c4" style="width:9%"></span><span class="c5" style="width:4%"></span></div>
+      <div class="legend"><span><i class="c1"></i>Operating company 58%</span><span><i class="c2"></i>Farm &amp; agriculture 17%</span><span><i class="c3"></i>Real estate 12%</span><span><i class="c4"></i>Public markets 9%</span><span><i class="c5"></i>Cash 4%</span></div>
+    </section>
+
+    <section>
+      <h3>Holdings</h3>
+      <table>
+        <thead><tr><th>Holding</th><th>Type</th><th class="num">Carrying value</th><th class="num">Share</th><th class="num">YTD</th></tr></thead>
+        <tbody>
+          <tr><td>Recycleworks Inc.<span class="sub">Waste &amp; organics infrastructure · Massachusetts &amp; Northeast</span></td><td>Operating company</td><td class="num">$28.2M</td><td class="num">58%</td><td class="num" style="color:var(--up)">+8.4%</td></tr>
+          <tr><td>Happy Trails Farm<span class="sub">275 acres · Angus herd · East Freetown, MA</span></td><td>Agriculture</td><td class="num">$8.3M</td><td class="num">17%</td><td class="num" style="color:var(--up)">+2.1%</td></tr>
+          <tr><td>Coastal Massachusetts land<span class="sub">Plymouth &amp; Bristol Counties · held directly</span></td><td>Real estate</td><td class="num">$5.8M</td><td class="num">12%</td><td class="num" style="color:var(--up)">+4.0%</td></tr>
+          <tr><td>Systematic strategies<span class="sub">Rules-based index sleeve · internally managed</span></td><td>Public markets</td><td class="num">$4.4M</td><td class="num">9%</td><td class="num" style="color:var(--up)">+9.7%</td></tr>
+          <tr><td>Cash &amp; equivalents<span class="sub">Operating reserve</span></td><td>Cash</td><td class="num">$1.9M</td><td class="num">4%</td><td class="num">—</td></tr>
+          <tr class="total"><td>Total</td><td></td><td class="num">$48.6M</td><td class="num">100%</td><td class="num">+6.2%</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="two">
+      <section>
+        <h3>Recent activity</h3>
+        <table>
+          <tbody>
+            <tr><td>Sep 18</td><td>RWI — Londonderry, NH permit filed</td></tr>
+            <tr><td>Sep 05</td><td>Farm — fall calving complete, 62 head</td></tr>
+            <tr><td>Aug 22</td><td>Public markets — sleeve rebalanced</td></tr>
+            <tr><td>Aug 01</td><td>RWI — fleet refinance closed</td></tr>
+            <tr><td>Jul 15</td><td>Q2 distribution paid</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="letter">
+        <h3>Quarterly note</h3>
+        <p>The quarter went as planned. The operating company grew tonnage and held margin; the farm closed its best calving season; the land did nothing, which is what land is for.</p>
+        <p>We added nothing new. The best move most quarters is to keep running what we own and let it compound.</p>
+        <p>— D.B.</p>
+      </section>
+    </div>
+
+    <p class="note">This page is a design mock-up. All figures are illustrative placeholders and do not represent actual holdings, values, or performance.</p>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Saquish Capital</span>
+  <span>Duxbury, Massachusetts</span>
+</footer>
+
+<script>
+(function(){
+  var H='daecb7d786617fdd7d86ed556edcd32fc1361070682475198ca2e9d5eb0e3745';
+  var gate=document.getElementById('gate'),portal=document.getElementById('portal'),out=document.getElementById('out'),f=document.getElementById('f'),err=document.getElementById('err');
+  function show(ok){gate.classList.toggle('hidden',ok);portal.classList.toggle('hidden',!ok);out.classList.toggle('hidden',!ok);}
+  function sha(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')});}
+  try{if(sessionStorage.getItem('sq')==='1')show(true);}catch(e){}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    var u=f.u.value.trim().toLowerCase(),p=f.p.value.trim().toLowerCase();
+    sha(u+':'+p).then(function(h){
+      if(h===H){try{sessionStorage.setItem('sq','1');}catch(x){}show(true);window.scrollTo(0,0);}
+      else{err.textContent='Incorrect username or password.';f.p.value='';f.p.focus();}
+    });
+  });
+  out.addEventListener('click',function(){try{sessionStorage.removeItem('sq');}catch(x){}f.reset();show(false);});
+})();
+</script>
+</body>
+</html>
