@@ -17,6 +17,10 @@ jobs:
       - name: Status before
         run: |
           gh api repos/$R/pages | tee before.json
+          echo "::notice title=pages-before::$(jq -c '{cname,https_enforced,state:.https_certificate.state,desc:.https_certificate.description,url:.html_url}' before.json)"
+          echo "::notice title=dns-A::$(dig +short saquish.capital A | tr '\n' ' ')"
+          echo "::notice title=tls::$(echo | openssl s_client -connect saquish.capital:443 -servername saquish.capital 2>/dev/null | openssl x509 -noout -subject -issuer -enddate 2>&1 | tr '\n' ' ')"
+          echo "::notice title=https-head::$(curl -sSI --max-time 20 https://saquish.capital/ 2>&1 | head -1)"
           echo "--- DNS"; dig +short saquish.capital A; dig +short www.saquish.capital CNAME
           echo "--- live"; curl -sSIk --max-time 20 https://saquish.capital/ | head -3 || true
           echo | openssl s_client -connect saquish.capital:443 -servername saquish.capital 2>/dev/null | openssl x509 -noout -subject -issuer -dates || true
@@ -39,6 +43,7 @@ jobs:
             sleep 30
           done
           cat now.json
+          echo "::notice title=pages-after-poll::$(jq -c '{cname,https_enforced,state:.https_certificate.state,desc:.https_certificate.description}' now.json)"
       - name: Enforce HTTPS
         run: |
           s=$(jq -r '.https_certificate.state // "none"' now.json)
@@ -49,4 +54,6 @@ jobs:
           fi
           echo "--- final live check"
           curl -sSI --max-time 20 https://saquish.capital/ | head -5 || true
-          gh api repos/$R/pages
+          gh api repos/$R/pages | tee final.json
+          echo "::notice title=pages-final::$(jq -c '{cname,https_enforced,state:.https_certificate.state}' final.json)"
+          echo "::notice title=final-https-head::$(curl -sSI --max-time 20 https://saquish.capital/ 2>&1 | head -1) | body has tagline: $(curl -sS --max-time 20 https://saquish.capital/ | grep -c 'Building in Duxbury')"
