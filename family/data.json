@@ -7,12 +7,12 @@
     {"name": "Happy Trails Farm", "sub": "275 acres · Angus herd · East Freetown, MA", "type": "Agriculture", "value": 1500000}
   ],
   "obligations": [
-    {"date": "2026-10-15", "what": "Federal & MA extended individual returns due", "who": "Withum"},
-    {"date": "2027-01-15", "what": "Q4 2026 estimated tax payment", "who": "Withum"},
-    {"date": "2027-03-15", "what": "Partnership / S-corp returns (Saquish Capital LP, Happy Trails LLC)", "who": "Withum"},
-    {"date": "2027-04-15", "what": "Individual returns + Q1 2027 estimate", "who": "Withum"},
-    {"date": "2027-06-15", "what": "Q2 2027 estimated tax payment", "who": "Withum"},
-    {"date": "2027-09-01", "what": "MA annual report — Saquish Capital LP (notice arrives ~Sep 1)", "who": "Lois / Dan"},
+    {"date": "2026-10-15", "what": "Federal & MA extended individual returns due", "who": "CPA"},
+    {"date": "2027-01-15", "what": "Q4 2026 estimated tax payment", "who": "CPA"},
+    {"date": "2027-03-15", "what": "Partnership / S-corp returns (Saquish Capital LP, Happy Trails LLC)", "who": "CPA"},
+    {"date": "2027-04-15", "what": "Individual returns + Q1 2027 estimate", "who": "CPA"},
+    {"date": "2027-06-15", "what": "Q2 2027 estimated tax payment", "who": "CPA"},
+    {"date": "2027-09-01", "what": "MA annual report — Saquish Capital LP (notice arrives ~Sep 1)", "who": "Dan"},
     {"date": "2027-10-01", "what": "Ch. 61A farm classification renewal — Freetown assessors", "who": "Dan"}
   ],
   "letters": [
