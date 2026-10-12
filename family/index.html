@@ -60,6 +60,32 @@
   .letter p{margin:0 0 14px;font-size:15px;line-height:1.6;max-width:62ch}
   .note{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
   .hidden{display:none}
+  .strip{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:12px;letter-spacing:.06em;color:var(--muted);margin:-18px 0 26px;min-height:1em}
+  .strip b{color:var(--navy);font-weight:600}
+  .people{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  .person{background:var(--cream);padding:16px 18px;border-left:3px solid var(--brass)}
+  .person .role{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .person .nm{font-size:15px;font-weight:600;color:var(--navy);margin:4px 0 2px}
+  .person .org{font-size:12px;color:var(--muted);margin-bottom:10px}
+  .person .acts{display:flex;gap:8px;flex-wrap:wrap}
+  .person .acts a{font:600 10px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border:1px solid var(--navy);padding:7px 10px;text-decoration:none}
+  .person .acts a:hover{background:var(--navy);color:var(--bg)}
+  .person .when{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.4}
+  .vault{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+  .vault a{display:block;background:var(--cream);padding:14px 16px;color:var(--navy);text-decoration:none;font-size:13px;font-weight:500;border-bottom:2px solid var(--line)}
+  .vault a:hover{border-color:var(--navy)}
+  .vault a small{display:block;font-weight:400;color:var(--muted);font-size:11px;margin-top:3px}
+  .ob td:first-child{white-space:nowrap;color:var(--navy);font-weight:600;width:110px}
+  .ob td:last-child{color:var(--muted);text-align:right;white-space:nowrap}
+  .next{font-size:13px;color:var(--muted);margin:-6px 0 14px}
+  .next b{color:var(--navy)}
+  textarea{width:100%;font:14px Montserrat,sans-serif;padding:12px 14px;border:1px solid var(--line);background:var(--cream);color:var(--ink);outline:none;min-height:90px;resize:vertical}
+  textarea:focus{border-color:var(--navy)}
+  .desk .btn{width:auto;padding:13px 22px;margin-top:12px}
+  .letters details{border-top:1px solid var(--line);padding:10px 0}
+  .letters summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--navy);letter-spacing:.04em}
+  .letters p{margin:10px 0 0;font-size:14px;line-height:1.6;max-width:62ch;white-space:pre-line}
+  .hi{font-size:13px;color:var(--muted)}
   .tag{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:3px 7px;border:1px solid var(--brass);color:var(--navy);margin-left:8px;vertical-align:middle}
 </style>
 </head>
@@ -84,36 +110,71 @@
   </div>
 
   <div id="portal" class="hidden">
-    <p class="eyebrow">Family portal</p>
+    <p class="eyebrow">Family portal · <span id="hi" class="hi"></span></p>
     <h2>Saquish Capital — Consolidated Holdings</h2>
-    <p class="asof">As of October 2026 · Estimated values</p>
+    <p class="asof" id="asof">As of October 2026 · Estimated values</p>
+    <div class="strip" id="strip"></div>
 
-    <div class="tiles">
-      <div class="tile"><div class="k">Net asset value</div><div class="v">$23.5M</div><div class="d">Four holdings</div></div>
-      <div class="tile"><div class="k">Operating companies</div><div class="v">$20.0M</div><div class="d">85% of total</div></div>
-      <div class="tile"><div class="k">Public equities</div><div class="v">$2.0M</div><div class="d">9% of total</div></div>
-      <div class="tile"><div class="k">Agriculture</div><div class="v">$1.5M</div><div class="d">6% of total</div></div>
-    </div>
+    <div class="tiles" id="tiles"></div>
 
     <section>
       <h3>Allocation</h3>
-      <div class="bar"><span class="c1" style="width:68.1%"></span><span class="c2" style="width:17%"></span><span class="c3" style="width:8.5%"></span><span class="c4" style="width:6.4%"></span></div>
-      <div class="legend"><span><i class="c1"></i>Recycleworks 68%</span><span><i class="c2"></i>Business X 17%</span><span><i class="c3"></i>Public equities 9%</span><span><i class="c4"></i>Farm 6%</span></div>
+      <div class="bar" id="bar"></div>
+      <div class="legend" id="legend"></div>
     </section>
 
     <section>
       <h3>Holdings</h3>
       <table>
         <thead><tr><th>Holding</th><th>Type</th><th class="num">Estimated value</th><th class="num">Share</th></tr></thead>
-        <tbody>
-          <tr><td>Recycleworks Inc.<span class="sub">Waste &amp; organics infrastructure · Massachusetts &amp; Northeast</span></td><td>Operating company</td><td class="num">$16.0M</td><td class="num">68%</td></tr>
-          <tr><td>Business X<span class="sub">Operating company</span></td><td>Operating company</td><td class="num">$4.0M</td><td class="num">17%</td></tr>
-          <tr><td>Public equities<span class="sub">Rules-based index sleeve · internally managed</span></td><td>Public markets</td><td class="num">$2.0M</td><td class="num">9%</td></tr>
-          <tr><td>Happy Trails Farm<span class="sub">275 acres · Angus herd · East Freetown, MA</span></td><td>Agriculture</td><td class="num">$1.5M</td><td class="num">6%</td></tr>
-          <tr class="total"><td>Total</td><td></td><td class="num">$23.5M</td><td class="num">100%</td></tr>
-        </tbody>
+        <tbody id="rows"></tbody>
       </table>
     </section>
+
+    <section>
+      <h3>The office — who to call</h3>
+      <div class="people">
+        <div class="person"><div class="role">Dan</div><div class="nm">Daniel Buonagurio</div><div class="org">Saquish Capital</div><div class="acts"><a href="tel:+17818440682">Call</a><a href="sms:+17818440682">Text</a><a href="mailto:daniel@recycleworksinc.com">Email</a></div><div class="when">First call for anything. If he's unreachable, go down this list.</div></div>
+        <div class="person"><div class="role">Lawyer</div><div class="nm">Chris Cassara</div><div class="org">Partridge Snow &amp; Hahn · New Bedford</div><div class="acts"><a href="tel:+17742068218">Call</a><a href="mailto:ccassara@psh.com">Email</a></div><div class="when">Contracts, property, the farm, anything someone wants signed. Nothing gets signed before he reads it.</div></div>
+        <div class="person"><div class="role">CPA &amp; tax</div><div class="nm">Jeff Caruso</div><div class="org">Withum · Boston</div><div class="acts"><a href="tel:+13392555360">Call</a><a href="mailto:jcaruso@withum.com">Email</a></div><div class="when">Tax returns, estimates, any letter from the IRS or Mass DOR. Forward the letter; don't reply to it.</div></div>
+        <div class="person"><div class="role">Banker</div><div class="nm">Nick Smigiel</div><div class="org">Comerica Bank</div><div class="acts"><a href="mailto:NMSmigiel@comerica.com">Email</a></div><div class="when">Lines, wires over the limit, anything the bank needs signed.</div></div>
+        <div class="person"><div class="role">Insurance</div><div class="nm">Megan Feehan</div><div class="org">Brown &amp; Brown · Boston</div><div class="acts"><a href="tel:+16176991825">Call</a><a href="tel:+16178301585">Office</a><a href="mailto:megan.feehan@bbrown.com">Email</a></div><div class="when">Any accident, damage, or claim — house, farm, vehicles, business. Call her before calling the carrier.</div></div>
+        <div class="person"><div class="role">Bookkeeping</div><div class="nm">Lois Roobian</div><div class="org">Recycleworks · Braintree</div><div class="acts"><a href="tel:+17813409425">Call</a><a href="mailto:loisr@cprecycling.com">Email</a></div><div class="when">Invoices, state filings, annual reports, "did this get paid."</div></div>
+        <div class="person"><div class="role">Emergency</div><div class="nm">Duxbury Police</div><div class="org">Non-emergency line</div><div class="acts"><a href="tel:+17819341212">Call</a><a href="tel:911">911</a></div><div class="when">Freetown PD (farm): <a href="tel:+15087634017" style="color:var(--navy)">508-763-4017</a>.</div></div>
+      </div>
+    </section>
+
+    <div class="two">
+      <section>
+        <h3>Calendar of obligations</h3>
+        <p class="next" id="next"></p>
+        <table class="ob"><tbody id="obs"></tbody></table>
+      </section>
+      <section>
+        <h3>Document vault</h3>
+        <div class="vault">
+          <a href="https://netorgft5731926.sharepoint.com/" target="_blank" rel="noopener">Entity documents<small>Saquish Capital LP · Happy Trails LLC · operating agreements</small></a>
+          <a href="https://netorgft5731926.sharepoint.com/" target="_blank" rel="noopener">Deeds &amp; titles<small>Farm parcels · vehicles</small></a>
+          <a href="https://netorgft5731926.sharepoint.com/" target="_blank" rel="noopener">Insurance<small>Declarations pages · Brown &amp; Brown policies</small></a>
+          <a href="https://netorgft5731926.sharepoint.com/" target="_blank" rel="noopener">Tax returns<small>Last three years · Withum</small></a>
+          <a href="https://netorgft5731926.sharepoint.com/" target="_blank" rel="noopener">Bank &amp; loans<small>Comerica · farm note</small></a>
+          <a href="https://netorgft5731926.sharepoint.com/" target="_blank" rel="noopener">Personal<small>Passports · IDs · wills</small></a>
+        </div>
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="desk">
+        <h3>Request desk</h3>
+        <p class="hi" style="margin:0 0 10px">Need something handled? Write it here. It goes to Dan's desk and gets done.</p>
+        <textarea id="req" placeholder="e.g. Renew the registration on the LX before the end of the month"></textarea>
+        <button class="btn" id="send" type="button">Send to the desk</button>
+      </section>
+      <section class="letters">
+        <h3>Letters</h3>
+        <div id="letters"></div>
+      </section>
+    </div>
 
     <p class="note">Values are management estimates and are not audited, appraised, or marked to market.</p>
   </div>
@@ -126,20 +187,72 @@
 
 <script>
 (function(){
-  var H='daecb7d786617fdd7d86ed556edcd32fc1361070682475198ca2e9d5eb0e3745';
+  var USERS={
+    'daecb7d786617fdd7d86ed556edcd32fc1361070682475198ca2e9d5eb0e3745':'Dan',
+    '8e4df88919894649b2b9db4044701720957fc8bb0c1b5afde7c50a1a561b30de':'Nicole'
+  };
   var gate=document.getElementById('gate'),portal=document.getElementById('portal'),out=document.getElementById('out'),f=document.getElementById('f'),err=document.getElementById('err');
-  function show(ok){gate.classList.toggle('hidden',ok);portal.classList.toggle('hidden',!ok);out.classList.toggle('hidden',!ok);}
+  function $(id){return document.getElementById(id)}
+  function show(ok,name){gate.classList.toggle('hidden',ok);portal.classList.toggle('hidden',!ok);out.classList.toggle('hidden',!ok);
+    if(ok){var h=new Date().getHours(),g=h<12?'Good morning':h<17?'Good afternoon':'Good evening';$('hi').textContent=g+(name?', '+name:'');load();}}
   function sha(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')});}
-  try{if(sessionStorage.getItem('sq')==='1')show(true);}catch(e){}
+  try{var n=sessionStorage.getItem('sq');if(n)show(true,n);}catch(e){}
   f.addEventListener('submit',function(e){
     e.preventDefault();err.textContent='';
     var u=f.u.value.trim().toLowerCase(),p=f.p.value.trim().toLowerCase();
     sha(u+':'+p).then(function(h){
-      if(h===H){try{sessionStorage.setItem('sq','1');}catch(x){}show(true);window.scrollTo(0,0);}
+      if(USERS[h]){try{sessionStorage.setItem('sq',USERS[h]);}catch(x){}show(true,USERS[h]);window.scrollTo(0,0);}
       else{err.textContent='Incorrect username or password.';f.p.value='';f.p.focus();}
     });
   });
   out.addEventListener('click',function(){try{sessionStorage.removeItem('sq');}catch(x){}f.reset();show(false);});
+
+  function money(v){return v>=1e6?'$'+(v/1e6).toFixed(1)+'M':'$'+Math.round(v/1e3)+'K'}
+  function fmtDate(d){return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}
+  var C=['c1','c2','c3','c4','c5'];
+  var loaded=false;
+  function load(){
+    if(loaded)return;loaded=true;
+    fetch('data.json?'+Date.now()).then(function(r){return r.json()}).then(render).catch(function(){});
+    strip();
+  }
+  function render(d){
+    var hs=d.holdings.slice().sort(function(a,b){return b.value-a.value});
+    var tot=hs.reduce(function(a,h){return a+h.value},0);
+    var byType={};hs.forEach(function(h){byType[h.type]=(byType[h.type]||0)+h.value});
+    $('asof').textContent='As of '+fmtDate(d.as_of)+' · Estimated values';
+    var tiles='<div class="tile"><div class="k">Net asset value</div><div class="v">'+money(tot)+'</div><div class="d">'+hs.length+' holdings</div></div>';
+    Object.keys(byType).sort(function(a,b){return byType[b]-byType[a]}).slice(0,3).forEach(function(t){tiles+='<div class="tile"><div class="k">'+t+'</div><div class="v">'+money(byType[t])+'</div><div class="d">'+Math.round(byType[t]/tot*100)+'% of total</div></div>'});
+    $('tiles').innerHTML=tiles;
+    $('bar').innerHTML=hs.map(function(h,i){return '<span class="'+C[i%5]+'" style="width:'+(h.value/tot*100).toFixed(1)+'%"></span>'}).join('');
+    $('legend').innerHTML=hs.map(function(h,i){return '<span><i class="'+C[i%5]+'"></i>'+h.name+' '+Math.round(h.value/tot*100)+'%</span>'}).join('');
+    $('rows').innerHTML=hs.map(function(h){return '<tr><td>'+h.name+'<span class="sub">'+h.sub+'</span></td><td>'+h.type+'</td><td class="num">'+money(h.value)+'</td><td class="num">'+Math.round(h.value/tot*100)+'%</td></tr>'}).join('')+'<tr class="total"><td>Total</td><td></td><td class="num">'+money(tot)+'</td><td class="num">100%</td></tr>';
+    var today=new Date().toISOString().slice(0,10);
+    var obs=d.obligations.filter(function(o){return o.date>=today}).sort(function(a,b){return a.date<b.date?-1:1});
+    if(obs.length){var days=Math.round((new Date(obs[0].date)-new Date(today))/864e5);$('next').innerHTML='Next: <b>'+obs[0].what+'</b> in '+days+' day'+(days===1?'':'s');}
+    $('obs').innerHTML=obs.map(function(o){return '<tr><td>'+fmtDate(o.date)+'</td><td>'+o.what+'</td><td>'+o.who+'</td></tr>'}).join('');
+    $('letters').innerHTML=d.letters.map(function(l,i){return '<details'+(i===0?' open':'')+'><summary>'+l.period+'</summary><p>'+l.text+'</p></details>'}).join('');
+  }
+  function strip(){
+    var el=$('strip'),parts={};
+    function paint(){el.innerHTML=['wx','tide'].filter(function(k){return parts[k]}).map(function(k){return parts[k]}).join('')}
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=42.04&longitude=-70.67&current=temperature_2m,wind_speed_10m,wind_direction_10m,weather_code&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=kn&timezone=America%2FNew_York&forecast_days=1')
+      .then(function(r){return r.json()}).then(function(w){
+        var c=w.current,dirs=['N','NE','E','SE','S','SW','W','NW'],dir=dirs[Math.round(c.wind_direction_10m/45)%8];
+        parts.wx='<span>Duxbury Bay <b>'+Math.round(c.temperature_2m)+'°</b> · wind <b>'+dir+' '+Math.round(c.wind_speed_10m)+' kn</b> · high '+Math.round(w.daily.temperature_2m_max[0])+'° / low '+Math.round(w.daily.temperature_2m_min[0])+'°</span>';paint();
+      }).catch(function(){});
+    fetch('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?station=8446493&product=predictions&datum=MLLW&interval=hilo&units=english&time_zone=lst_ldt&format=json&date=today')
+      .then(function(r){return r.json()}).then(function(t){
+        var now=new Date(),nx=(t.predictions||[]).map(function(p){return {t:new Date(p.t.replace(' ','T')),hi:p.type==='H',v:parseFloat(p.v)}}).filter(function(p){return p.t>now});
+        if(nx.length){var p=nx[0];parts.tide='<span>Next '+(p.hi?'high':'low')+' tide <b>'+p.t.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})+'</b> ('+p.v.toFixed(1)+' ft)</span>';paint();}
+      }).catch(function(){});
+  }
+  $('send').addEventListener('click',function(){
+    var t=$('req').value.trim();if(!t)return;
+    var who='';try{who=sessionStorage.getItem('sq')||''}catch(e){}
+    location.href='mailto:daniel@recycleworksinc.com?subject='+encodeURIComponent('[Saquish desk] '+t.slice(0,60))+'&body='+encodeURIComponent(t+'\n\n— '+who+' via saquish.capital/family');
+    $('req').value='';
+  });
 })();
 </script>
 </body>
