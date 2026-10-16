@@ -16,8 +16,13 @@
   html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
   header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px clamp(16px,4vw,56px);background:var(--bg)}
   .logo img{height:54px;width:auto;display:block}
-  nav a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--navy);text-decoration:none;border:1px solid var(--navy);padding:10px 16px}
-  nav a:hover{background:var(--navy);color:var(--bg)}
+  nav{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+  nav a{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--navy);text-decoration:none}
+  nav a.m{padding:10px 0;border-bottom:1px solid transparent}
+  nav a.m:hover,nav a.m[aria-current]{border-bottom-color:var(--navy)}
+  nav a.login{border:1px solid var(--navy);padding:10px 16px}
+  nav a.login:hover{background:var(--navy);color:var(--bg)}
+  @media (max-width:600px){nav{gap:12px}nav a{font-size:10px;letter-spacing:.16em}nav a.login{padding:8px 10px}}
   .hero{position:relative;min-height:min(78vh,760px);background:url(powder-point-1910.jpg) center 60%/cover no-repeat;display:flex;align-items:flex-end;padding:clamp(24px,5vw,64px) clamp(16px,4vw,56px)}
   .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,34,64,.08),rgba(13,34,64,.22))}
   .box{position:relative;background:rgba(244,239,228,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--navy);padding:clamp(18px,2.6vw,30px) clamp(22px,3vw,40px);max-width:36ch;border-left:3px solid var(--navy)}
@@ -30,7 +35,12 @@
 <body>
 <header>
   <a class="logo" href="/" aria-label="Saquish Capital"><img src="logo.png" alt="Saquish Capital"></a>
-  <nav><a href="/family/">Family Login</a></nav>
+  <nav>
+    <a class="m" href="/portfolio/">Portfolio</a>
+    <a class="m" href="/letters/">Letters</a>
+    <a class="m" href="/giving/">Giving</a>
+    <a class="login" href="/family/">Family Login</a>
+  </nav>
 </header>
 <section class="hero" aria-label="Powder Point Bridge, Duxbury Bay">
   <div class="box"><p>Building in Duxbury.</p><small>Permanent capital — for the long haul.</small></div>
