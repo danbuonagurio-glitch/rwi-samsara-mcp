@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tori H Designs — Fine Jewelry, Boston</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111;
+    --paper:#fff;
+    --blush:#f6efe9;
+    --hair:#d9d4cf;
+    --mute:#6b6762;
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"Inter",-apple-system,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+
+  /* utility bar */
+  .bar{background:#000;color:#fff;height:36px;display:grid;grid-template-columns:40px 1fr 40px;align-items:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .bar .c{text-align:center}
+  .bar .c u{text-underline-offset:3px}
+  .bar .arr{text-align:center;font-size:14px;opacity:.9}
+
+  /* header */
+  .hdr{position:sticky;top:0;z-index:20;height:48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 22px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;mix-blend-mode:difference;color:#fff}
+  .hdr .l,.hdr .r{display:flex;gap:26px}
+  .hdr .r{justify-content:flex-end}
+  .hdr .wm{font-family:var(--serif);font-size:22px;letter-spacing:.12em;font-weight:500}
+
+  /* hero */
+  .hero{position:relative;height:calc(100vh - 36px);min-height:560px;margin-top:-48px;overflow:hidden;background:#1a1613}
+  .hero img{object-position:50% 35%}
+  .hero .title{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;text-align:center;text-shadow:0 1px 24px rgba(0,0,0,.35)}
+  .hero .title h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,64px);letter-spacing:.16em;text-transform:uppercase}
+  .hero .title p{margin-top:14px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;opacity:.9}
+
+  /* sections */
+  section{padding:60px 60px 0}
+  .kicker{text-align:center;font-family:var(--serif);font-size:20px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;margin-bottom:28px}
+  .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .row4 figure{aspect-ratio:1/1.05;overflow:hidden}
+  .row4 figcaption,.row2 figcaption{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-top:16px;font-weight:500}
+  .rule{border:0;border-top:1px solid var(--hair);margin:48px 0 0}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+  .row2 figure{aspect-ratio:3/3.6;overflow:hidden;background:var(--blush)}
+  .row2 .contain img{object-fit:cover;object-position:50% 40%}
+
+  /* split editorial */
+  .split{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;padding:90px 60px 0}
+  .split figure{aspect-ratio:4/5;overflow:hidden}
+  .split h2{font-family:var(--serif);font-weight:500;font-size:40px;letter-spacing:.06em;line-height:1.1}
+  .split p{margin-top:22px;max-width:46ch;font-size:14px;line-height:1.75;color:var(--mute)}
+  .btn{display:inline-block;margin-top:30px;border:1px solid var(--ink);padding:14px 36px;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+
+  /* full bleed band */
+  .band{margin-top:90px;height:70vh;min-height:460px;position:relative;overflow:hidden}
+  .band img{object-position:50% 60%}
+  .band .cap{position:absolute;left:0;right:0;bottom:48px;text-align:center;color:#fff;text-shadow:0 1px 20px rgba(0,0,0,.4)}
+  .band .cap h3{font-family:var(--serif);font-weight:500;font-size:34px;letter-spacing:.14em;text-transform:uppercase}
+  .band .cap span{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:4px}
+
+  /* newsletter + footer */
+  .news{margin:90px 60px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:56px 0;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .news h4{font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:.06em}
+  .news form{display:flex;gap:0;border:1px solid var(--ink)}
+  .news input{flex:1;border:0;padding:14px 18px;font:inherit;font-size:12px;letter-spacing:.1em;outline:0}
+  .news button{border:0;background:var(--ink);color:#fff;padding:0 28px;font:inherit;font-size:11px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+  footer{padding:56px 60px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  footer .wm{font-family:var(--serif);font-size:22px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+  footer .sub{margin-top:10px;font-size:11px;letter-spacing:.12em;text-transform:none;color:var(--mute);line-height:1.7}
+  footer ul{list-style:none;display:grid;gap:12px}
+  footer h5{margin-bottom:16px;font-weight:500}
+  .legal{padding:0 60px 40px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between}
+  .test{position:fixed;left:12px;bottom:12px;z-index:30;background:#000;color:#fff;font-size:10px;letter-spacing:.2em;padding:6px 10px;text-transform:uppercase;opacity:.75}
+
+  @media (max-width:860px){
+    section,.split,.news,footer,.legal{padding-left:16px;padding-right:16px}
+    .news{margin-left:16px;margin-right:16px}
+    .row4{grid-template-columns:1fr 1fr;gap:12px}
+    .row2{gap:16px}
+    .split{grid-template-columns:1fr;gap:28px}
+    .news{grid-template-columns:1fr}
+    footer{grid-template-columns:1fr 1fr}
+    .hdr .l span:nth-child(2),.hdr .r span:nth-child(2){display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="arr">‹</div>
+  <div class="c">Custom holiday orders · Begin by November 6 for December delivery · <u>Start a piece</u></div>
+  <div class="arr">›</div>
+</div>
+
+<header class="hdr">
+  <div class="l"><span>Menu</span><span>Search</span></div>
+  <a class="wm" href="#">Tori H Designs</a>
+  <div class="r"><span>Account</span><span>Wishlist</span><span>Inquire</span></div>
+</header>
+
+<div class="hero">
+  <img src="img/tori-04-tennis-necklace.jpg" alt="">
+  <div class="title">
+    <h1>Tori H Designs</h1>
+    <p>Fine Jewelry · Bespoke Engagement Rings · Heirloom Redesigns</p>
+  </div>
+</div>
+
+<section>
+  <div class="kicker">Explore the Collection</div>
+  <div class="row4">
+    <figure><a href="#"><img src="img/tori-03-swirl-ring-lace.jpg" alt=""></a><figcaption>Engagement</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-08-everyday-earring.jpg" alt=""></a><figcaption>Earrings</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-01-garnet-pendant.jpg" alt=""></a><figcaption>Necklaces</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-10-earrings-hand.jpg" alt=""></a><figcaption>Bespoke</figcaption></figure>
+  </div>
+  <hr class="rule">
+</section>
+
+<section>
+  <div class="row2">
+    <figure class="contain"><a href="#"><img src="img/tori-06-oval-ring-marble.jpg" alt=""></a><figcaption>The Oval</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-05-lariat-grey.jpg" alt=""></a><figcaption>The Swirl Lariat</figcaption></figure>
+  </div>
+</section>
+
+<div class="split">
+  <figure><img src="img/tori-02-pearls-charms.jpg" alt=""></figure>
+  <div>
+    <h2>Heirloom Redesigns</h2>
+    <p>A grandmother's pearls. A handwritten note engraved in gold. A stone that has already lived one life and is ready for the next. Every heirloom piece starts with the story behind the metal, and ends with something you will wear every day.</p>
+    <p>GIA trained. Designed and finished in Boston.</p>
+    <a class="btn" href="#">Begin a Redesign</a>
+  </div>
+</div>
+
+<div class="band">
+  <img src="img/tori-11-wedding.jpg" alt="">
+  <div class="cap">
+    <h3>Bespoke Engagement</h3>
+    <span>Book a consultation</span>
+  </div>
+</div>
+
+<section style="padding-top:90px">
+  <div class="kicker">In the Studio</div>
+  <div class="row4">
+    <figure><a href="#"><img src="img/tori-07-flatlay-sizer.jpg" alt=""></a><figcaption>Sizing &amp; Fit</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-09-sunset-hand.jpg" alt=""></a><figcaption>Life in Jewels</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-05-lariat-grey.jpg" alt=""></a><figcaption>Everyday</figcaption></figure>
+    <figure><a href="#"><img src="img/tori-02-pearls-charms.jpg" alt=""></a><figcaption>Charms</figcaption></figure>
+  </div>
+</section>
+
+<div class="news">
+  <h4>Stay in the know.</h4>
+  <form onsubmit="return false"><input type="email" placeholder="Enter your email"><button>Subscribe</button></form>
+</div>
+
+<footer>
+  <div>
+    <div class="wm">Tori H Designs</div>
+    <div class="sub">Fine jewelry, bespoke engagement rings and heirloom redesigns.<br>Boston, Massachusetts<br>Tori@torihdesigns.com</div>
+  </div>
+  <div><h5>Shop</h5><ul><li>Engagement</li><li>Earrings</li><li>Necklaces</li><li>Bracelets</li></ul></div>
+  <div><h5>Studio</h5><ul><li>Bespoke</li><li>Heirloom Redesign</li><li>Appointments</li><li>Care</li></ul></div>
+  <div><h5>Follow</h5><ul><li><a href="https://www.instagram.com/tori.h.designs/">Instagram</a></li><li>Email</li></ul></div>
+</footer>
+<div class="legal"><span>© 2026 Tori H Designs</span><span>Test page · not linked from saquish.capital</span></div>
+<div class="test">Test mock · saquish.capital/tori-h-designs</div>
+
+</body>
+</html>
